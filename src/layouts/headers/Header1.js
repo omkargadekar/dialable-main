@@ -1,8 +1,18 @@
 import Link from "next/link";
-import React from "react";
-import { About, Blog, Contact, Home, Listing, Pages } from "../Menu";
+import React, { useEffect, useState } from "react";
+import { About, Blog, Contact, Home, Listing, Pages, Profile } from "../Menu";
+import axios from "axios";
 
 const Header1 = () => {
+  const [user , setUser ] = useState({})
+  useEffect(()=>{
+    const userID = localStorage.getItem('userID')
+    axios.get(`/api/auth/get-current-user/${userID}`)
+    .then((res)=>{
+      console.log(res)
+    })
+    .catch((err)=>console.log(err))
+  },[])
   return (
     <header className="header-area header-area-one d-none d-xl-block">
       <div className="header-top">
@@ -149,11 +159,12 @@ const Header1 = () => {
                 <div className="header-right-nav">
                   <ul className="d-flex align-items-center">
                     <li className="user-btn">
-                      <Link href="/">
-                        <a className="icon">
+                        <a href="/profile" className="icon">
                           <i className="flaticon-avatar"></i>
                         </a>
-                      </Link>
+                        <ul className="sub-menu">
+                          <Profile profileName={"Raju"} />
+                        </ul>
                     </li>
                     <li className="hero-nav-btn">
                       <Link href="/add-listing">

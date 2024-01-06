@@ -76,3 +76,12 @@ export const Contact = () => (
     </li>
   </Fragment>
 );
+export const Profile = ({profileName}) => (
+  <Fragment>
+    <li className="menu-item">
+      {/* <Link href="/profile">{profileName}</Link> */}
+      <Link href="/profile">{profileName}</Link>
+      {/* <span>{profileName}</span> */}
+    </li>
+  </Fragment>
+);

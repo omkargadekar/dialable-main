@@ -156,11 +156,20 @@ const Header3 = () => {
                 <div className="header-right-nav">
                   <ul className="d-flex align-items-center">
                     <li className="user-btn">
-                      <Link href="/">
+                      {/* Profile  */}
+                      <div className="dropdown show">
+
+                      <Link href="#" className="dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown">
                         <a className="icon">
                           <i className="flaticon-avatar" />
                         </a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <a class="dropdown-item" href="#">Action</a>
+    <a class="dropdown-item" href="#">Another action</a>
+    <a class="dropdown-item" href="#">Something else here</a>
+  </div>
                       </Link>
+                      </div>
                     </li>
                     <li className="hero-nav-btn">
                       <Link href="/add-listing">
