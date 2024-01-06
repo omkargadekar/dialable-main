@@ -1,6 +1,7 @@
 import multer from "multer";
 import fs from "fs";
 import path from "path";
+import Product from "../../../src/models/productModel.js";
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -35,7 +36,7 @@ const upload = multer({ storage: storage });
 
 export default async function GET(req, res) {
   try {
-    const products = await productModel.aggregate([
+    const products = await Product.aggregate([
       {
         $lookup: {
           from: "categories",

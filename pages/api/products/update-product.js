@@ -1,6 +1,7 @@
 import multer from "multer";
 import fs from "fs";
 import path from "path";
+import Product from "../../../src/models/productModel";
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -45,7 +46,7 @@ export default async function PUT(req, res) {
 
       const product_id = req.params.product_id;
 
-      const productData = await productModel.findOne({ _id: product_id });
+      const productData = await Product.findOne({ _id: product_id });
       const {
         name,
         category,
@@ -76,7 +77,7 @@ export default async function PUT(req, res) {
 
       // console.log('Files:', req.files);
 
-      const updatedData = await productModel.updateOne(
+      const updatedData = await Product.updateOne(
         { _id: product_id },
         {
           $set: {

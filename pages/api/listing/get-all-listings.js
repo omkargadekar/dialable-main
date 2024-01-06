@@ -1,7 +1,7 @@
 import multer from "multer";
 import fs from "fs";
 import path from "path";
-import Listing from "../../../src/models/listingModel.js";
+import Listing from "../../../src/models/listingModel";
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {

@@ -1,6 +1,7 @@
 import multer from "multer";
 import fs from "fs";
 import path from "path";
+import Product from "../../../src/models/productModel";
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -67,7 +68,7 @@ export default async function POST(req, res) {
 
       // console.log('Files:', req.files);
 
-      const productData = new productModel({
+      const productData = new Product({
         name: name,
         category: category,
         subcategory: subcategory,

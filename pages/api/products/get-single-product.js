@@ -1,6 +1,7 @@
 import multer from "multer";
 import fs from "fs";
 import path from "path";
+import Product from "../../../src/models/productModel";
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -36,8 +37,7 @@ const upload = multer({ storage: storage });
 export default async function GET(req, res) {
   try {
     const productID = req.params.product_id;
-    const productData = await productModel
-      .findOne({ _id: productID })
+    const productData = await Product.findOne({ _id: productID })
       .populate("category")
       .populate("subcategory");
 
