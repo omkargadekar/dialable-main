@@ -1,4 +1,4 @@
-import { User } from "../../../src/models/userModel.js";
+import User from "../../../src/models/userModel";
 
 const logoutUser = asyncHandler(async (req, res) => {
   await User.findByIdAndUpdate(

@@ -1,4 +1,4 @@
-import { User } from "../../../src/models/userModel";
+import User from "../../../src/models/userModel.js";
 
 export default async function POST(req, res) {
   const { oldPassword, newPassword } = req.body;

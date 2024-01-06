@@ -1,4 +1,4 @@
-import { Category } from "../../../src/models/categoryModel";
+import Category from "../../../src/models/categoryModel.js";
 import multer from "multer";
 import fs from "fs";
 import path from "path";

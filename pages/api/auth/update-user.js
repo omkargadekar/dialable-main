@@ -1,4 +1,4 @@
-import { User } from "../../../src/models/userModel";
+import User from "../../../src/models/userModel.js";
 
 export default async function PUT(req, res) {
   const newUserData = {

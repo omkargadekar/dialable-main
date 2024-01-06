@@ -1,7 +1,16 @@
 import multer from "multer";
 import fs from "fs";
 import path from "path";
-import Listing from "../../../src/models/listingModel";
+import Listing from "../../../src/models/listingModel.js";
+import { log } from "console";
+import connectDB from "../../../src/dbConfig/dbConfig.js";
+connectDB()
+  .then(() => {
+    console.log("connected");
+  })
+  .catch(() => {
+    console.log("not connected");
+  });
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -46,7 +55,7 @@ export default async function GET(req, res) {
         },
       },
       { $unwind: "$categories" },
-    ]);
+    ]).option({ maxTimeMS: 30000 });
 
     if (listingData) {
       return res.status(200).json({
@@ -55,6 +64,7 @@ export default async function GET(req, res) {
       });
     }
   } catch (error) {
+    console.log(error);
     return res.status(500).json({
       message: error.message,
     });
