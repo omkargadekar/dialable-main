@@ -1,3 +1,5 @@
+import User from "../../../src/models/userModel.js";
+
 export default async function PUT(req, res) {
   const newUserData = {
     role: req.body.role,

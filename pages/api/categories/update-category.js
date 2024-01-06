@@ -1,7 +1,7 @@
 import multer from "multer";
 import fs from "fs";
 import path from "path";
-import { Category } from "../../../src/models/categoryModel";
+import Category from "../../../src/models/categoryModel.js";
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {

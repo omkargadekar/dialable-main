@@ -1,9 +1,9 @@
-import { User } from "../../../src/models/userModel";
+import User from "../../../src/models/userModel.js";
 import express from "express";
 import cookieParser from "cookie-parser";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import Cookies from "cookies"
+import Cookies from "cookies";
 
 export default async function handler(req, res) {
   try {
@@ -18,7 +18,10 @@ export default async function handler(req, res) {
         });
       }
 
-      const passwordCompare = await bcrypt.compare(password, existUser.password);
+      const passwordCompare = await bcrypt.compare(
+        password,
+        existUser.password
+      );
 
       if (!passwordCompare) {
         return res.status(400).json({

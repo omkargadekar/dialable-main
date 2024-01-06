@@ -1,4 +1,4 @@
-import { User } from "../../../src/models/userModel";
+import User from "../../../src/models/userModel.js";
 
 export default async function DELETE(req, res) {
   const user = await User.findById(req.params.id);
